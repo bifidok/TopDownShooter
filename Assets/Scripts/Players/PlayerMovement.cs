@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.TryGetComponent(out FallFromPlatform fallen))
+        if(collision.gameObject.TryGetComponent(out Bounds bound))
         {
             Debug.Log("Die");
         }

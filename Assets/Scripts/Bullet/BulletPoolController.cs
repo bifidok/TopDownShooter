@@ -4,11 +4,12 @@ using UnityEngine;
 public class BulletPoolController : IBullet
 {
     private List<Bullet> _bulletList;
+    private BulletPool _pool;
 
     public BulletPoolController(Bullet bulletPrefab, Transform bulletContainer, int bulletCount)
     {
-        BulletPool pool = new BulletPool(bulletPrefab, bulletContainer, bulletCount);
-        _bulletList = pool.Init();
+        _pool = new BulletPool(bulletPrefab, bulletContainer, bulletCount);
+        _bulletList = _pool.Init();
     }
 
     public void GetAnyBullet(Vector3 bulletMoveDirection)
