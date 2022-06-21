@@ -9,7 +9,8 @@ public class BulletPoolController : IBullet
     public BulletPoolController(Bullet bulletPrefab, Transform bulletContainer, int bulletCount)
     {
         _pool = new BulletPool(bulletPrefab, bulletContainer, bulletCount);
-        _bulletList = _pool.Init();
+        _pool.Init();
+        _bulletList = _pool.Pool;
     }
 
     public void GetAnyBullet(Vector3 bulletMoveDirection)

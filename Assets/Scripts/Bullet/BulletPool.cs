@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BulletPool
 {
+    public List<Bullet> Pool { get; private set; }
     private Transform _container;
     private Bullet _prefab;
-    private List<Bullet> _pool;
     private int _bulletCount;
 
     public BulletPool(Bullet prefab, Transform container, int bulletCount)
@@ -16,18 +16,17 @@ public class BulletPool
         _bulletCount = bulletCount;
     }
 
-    public List<Bullet> Init()
+    public void Init()
     {
-        _pool = new List<Bullet>();
+        Pool = new List<Bullet>();
         CreatePool(_bulletCount);
-        return _pool;
     }
 
     private void CreatePool(int count)
     {
         for (int i = 0; i < count; i++)
         {
-            _pool.Add(CreateNewBullet());
+            Pool.Add(CreateNewBullet());
         }
     }
 

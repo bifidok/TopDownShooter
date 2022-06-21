@@ -1,6 +1,6 @@
 using UnityEngine;
 
-interface IBullet
+public interface IBullet
 {
     void GetAnyBullet(Vector3 direction);
 }
