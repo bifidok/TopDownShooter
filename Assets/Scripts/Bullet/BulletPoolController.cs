@@ -19,13 +19,13 @@ public class BulletPoolController : IBulletController
 
         foreach (var bullet in _bulletList)
         {
-            bullet.ShotPlayer += GetBulletHit;
+            bullet.ShotPlayer += Hit;
         }
     }
 
-    private void GetBulletHit(IDamageable damageable, int damage)
+    private void Hit(IShooter shooter)
     {
-        damageable.ApplyDamage(damage);
+        shooter.GetPoint();
     }
 
     public void GetAnyBullet(Vector3 bulletMoveDirection)

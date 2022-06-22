@@ -4,8 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Bullet : MonoBehaviour
 {
-    public Action<IDamageable, int> ShotPlayer;
-    [SerializeField] private int _damage;
+    public Action<IShooter> ShotPlayer;
     [SerializeField] private int _force;
     [SerializeField] private float _lifeTime;
     private Transform _container;
@@ -58,9 +57,10 @@ public class Bullet : MonoBehaviour
             DeactivateBullet();
         }
 
-        if(other.gameObject.TryGetComponent(out IDamageable damageable))
+        if(other.gameObject.TryGetComponent(out IShooter receivedHit))
         {
-            ShotPlayer(damageable, _damage);
+            ShotPlayer(receivedHit);
+            DeactivateBullet();
         }
     }
 
